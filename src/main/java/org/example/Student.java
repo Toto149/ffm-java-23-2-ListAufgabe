@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,7 +9,7 @@ public class Student {
     private String surname;
     private String id;
 
-    private List<Course> courseList;
+    private List<Course> courseList = new ArrayList<>();
 
     public Student(){
 
