@@ -1,43 +1,64 @@
 package org.example;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
-    private String vorname;
-    private String nachname;
-    private String matrikelnummer;
+    private String firstname;
+    private String surname;
+    private String id;
+
+    private List<Course> courseList;
 
     public Student(){
 
     }
-    public Student(String vorname, String nachname, String matrikelnummer) {
-        this.vorname = vorname;
-        this.nachname = nachname;
-        this.matrikelnummer = matrikelnummer;
+    public Student(String firstname, String surname, String id) {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.id = id;
+    }
+    public Student(String firstname, String surname, String id, List<Course> courseList) {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.id = id;
+        this.courseList = courseList;
+    }
+    public void addToCourse(Course course){
+        this.courseList.add(course);
+
     }
 
-    public String getVorname() {
-        return vorname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getNachname() {
-        return nachname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getMatrikelnummer() {
-        return matrikelnummer;
+    public String getId() {
+        return id;
     }
 
-    public void setMatrikelnummer(String matrikelnummer) {
-        this.matrikelnummer = matrikelnummer;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
     }
 
     @Override
@@ -45,20 +66,21 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(vorname, student.vorname) && Objects.equals(nachname, student.nachname) && Objects.equals(matrikelnummer, student.matrikelnummer);
+        return Objects.equals(firstname, student.firstname) && Objects.equals(surname, student.surname) && Objects.equals(id, student.id) && Objects.equals(courseList, student.courseList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vorname, nachname, matrikelnummer);
+        return Objects.hash(firstname, surname, id, courseList);
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "vorname='" + vorname + '\'' +
-                ", nachname='" + nachname + '\'' +
-                ", matrikelnummer='" + matrikelnummer + '\'' +
+                "firstname='" + firstname + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id='" + id + '\'' +
+                ", courseList=" + courseList +
                 '}';
     }
 }

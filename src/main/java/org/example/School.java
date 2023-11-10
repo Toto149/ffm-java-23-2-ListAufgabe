@@ -24,15 +24,26 @@ public class School {
     public void layOffStudent(Student student){
         students.remove(student);
     }
-    public Student findStudent(String matrikelnummer){
+    public List<Course> findCourses(String id){
+        for(Student student : students ){
+            int i = students.indexOf(student);
+            if(student.getId().equals(id)){
+                return student.getCourseList();
+            }
+        }
+        System.out.println("Dieser Student findet sich nicht an dieser Schule");
+        return null;
+    }
+    public Student findStudent(String id){
         for(Student student: this.students){
             int i = this.students.indexOf(student);
-            if(this.students.get(i).getMatrikelnummer().equals(matrikelnummer)){
+            if(this.students.get(i).getId().equals(id)){
                 return this.students.get(i);
             }
         }
         System.out.println("Diesen Studenten findet sich nicht in der Liste");
         return null;
     }
+
 
 }
