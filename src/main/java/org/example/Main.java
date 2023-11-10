@@ -13,6 +13,8 @@ public class Main {
         schoolClass.add(student1);
         schoolClass.add(student2);
         schoolClass.add(student3);
-        System.out.println(schoolClass);
+        School school = new School(schoolClass);
+        System.out.println(school.findStudent("12345"));
+
     }
 }

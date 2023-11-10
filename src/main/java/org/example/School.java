@@ -21,8 +21,8 @@ public class School {
     public void displayStudent(){
         System.out.println(students);
     }
-    public void layOffStudent(Student student){
-        students.remove(student);
+    public void layOffStudent(String id){
+        students.remove(this.findStudent(id));
     }
     public List<Course> findCourses(String id){
         for(Student student : students ){
